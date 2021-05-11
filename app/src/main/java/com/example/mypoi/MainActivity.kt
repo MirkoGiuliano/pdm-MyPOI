@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var datiLista = ArrayList<DatoLista>()  // qua dovra cercare i dati sul database
+        var datiLista = ArrayList<DatoLista>()
+        // qua dovra cercare i dati sul database
         listaPosizioni.adapter = ListMyAdapter(this,datiLista)
     }
 
