@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyPOI</string>
+    <string name="descrizione">Inserisci una descrizione della posizione</string>
+    <string name="categorie">Inserisci una categoria</string>
+    <string name="salva_la_posizione">Salva la posizione</string>
+    <string name="descrizione2">Descrizione</string>
 </resources>
