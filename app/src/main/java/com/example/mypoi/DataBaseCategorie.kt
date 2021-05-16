@@ -22,7 +22,7 @@ class DataBaseCategorie(var context : Context) : SQLiteOpenHelper(context, "cate
         val database = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLONNA_CATEGORIE,categoria)
-        val result = database.insert( TABLE_NAME , null ,contentValues)
+        val result = database.insert(TABLE_NAME , null ,contentValues)
         if(result == (0).toLong()){
             Toast.makeText(context, "inserimento categoria fallito", Toast.LENGTH_SHORT).show()
         }else{
@@ -43,6 +43,19 @@ class DataBaseCategorie(var context : Context) : SQLiteOpenHelper(context, "cate
             }while(result.moveToNext())
         }
         return list
+    }
+
+    fun init() {
+        val db = this.readableDatabase
+        val query = "Select Count(*) from $TABLE_NAME"
+        val result = db.rawQuery(query, null)
+        if(result.moveToFirst() && result.getInt(0) < 1){
+            insertData("Parcheggio")
+            insertData("Monumento")
+            insertData("Bar")
+            insertData("Ristorante")
+            insertData("Da visitare")
+        }
     }
 
 }
