@@ -2,7 +2,6 @@ package com.example.mypoi
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -16,26 +15,24 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import org.graalvm.compiler.nodes.memory.address.OffsetAddressNode.address
-
-
-
-
 
 class MapsFragment : Fragment(), LocationListener{
 
     private lateinit var locationManager: LocationManager
-    private var longitudine: Double = 0.0
-    private var latitudine: Double = 0.0
+    private lateinit var marker: Marker
+    private lateinit var map: GoogleMap
 
     private val callback = OnMapReadyCallback { googleMap ->
+        map = googleMap
         getLocation()
-        val myPosition = LatLng(latitudine, longitudine)
-        googleMap.addMarker(MarkerOptions().position(myPosition).title(""))
+        val myPosition = LatLng(0.0, 0.0)
+        marker = googleMap.addMarker(MarkerOptions().position(myPosition).title(""))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition))
     }
 
@@ -55,10 +52,9 @@ class MapsFragment : Fragment(), LocationListener{
     }
 
     override fun onLocationChanged(location: Location) {
-        longitudine = location.longitude
-        latitudine = location.latitude
-        var mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
+        val myPosition = LatLng(location.latitude, location.longitude)
+        marker.position = myPosition
+        map.moveCamera(CameraUpdateFactory.newLatLng(myPosition))
     }
 
     private fun getLocation() {
