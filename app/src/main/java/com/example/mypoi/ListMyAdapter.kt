@@ -33,7 +33,7 @@ class ListMyAdapter(private val context: Context, private val datiLista: ArrayLi
             var info_posizione: TextView = newView.findViewById(R.id.info_posizione)
             // se modifichiamo anche l'immagone della categoria aggiungere qui
             categoria.text = datiLista[position].getCategoria()
-            info_posizione.text = datiLista[position].getInfo()
+            info_posizione.text = datiLista[position].getDescrizione()
 
         }
         return newView

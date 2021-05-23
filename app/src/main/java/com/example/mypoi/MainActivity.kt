@@ -19,8 +19,16 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
         }
 
-        var datiLista = ArrayList<DatoLista>()
-        // qua dovra cercare i dati sul database
+        val dbPos = DataBasePosizioni( this)
+        var datiLista = dbPos.readData()
+        listaPosizioni.adapter = ListMyAdapter(this,datiLista)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val dbPos = DataBasePosizioni( this)
+        var datiLista = dbPos.readData()
         listaPosizioni.adapter = ListMyAdapter(this,datiLista)
     }
 

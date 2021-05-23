@@ -55,6 +55,7 @@ class MapsFragment : Fragment(), LocationListener{
         val myPosition = LatLng(location.latitude, location.longitude)
         marker.position = myPosition
         map.moveCamera(CameraUpdateFactory.newLatLng(myPosition))
+        dataPasser.onDataPass(myPosition)
     }
 
     private fun getLocation() {
@@ -74,6 +75,17 @@ class MapsFragment : Fragment(), LocationListener{
                 Toast.makeText(this.context, "Permission Denied", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    interface OnDataPass {
+        fun onDataPass(data: LatLng)
+    }
+
+    lateinit var dataPasser: OnDataPass
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dataPasser = context as OnDataPass
     }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {

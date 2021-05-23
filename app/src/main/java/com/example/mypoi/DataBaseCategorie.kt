@@ -6,8 +6,9 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
-val TABLE_NAME = "categorie"
-val COLONNA_CATEGORIE = "nomeCategoria"
+private val TABLE_NAME = "categorie"
+private val COLONNA_CATEGORIE = "nomeCategoria"
+
 class DataBaseCategorie(var context : Context) : SQLiteOpenHelper(context, "categorie.db" , null , 1){
 
     override fun onCreate(db: SQLiteDatabase?) {
