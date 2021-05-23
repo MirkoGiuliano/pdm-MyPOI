@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModificaPOI"
+    android:background="#F5F5F5"
+    android:padding="24dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView_descrizione_categorie_modifica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/modifica_la_categoria"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner_selettore_categoria_modifica"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/textView_descrizione_modifica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/modifica_la_descrizione_della_posizione"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextDescrizione_modifica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/descrizione2"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/buttonSalva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salva le modifiche"/>
+
+    <Button
+        android:id="@+id/buttonElimina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Elimina la posizione"/>
+</LinearLayout>

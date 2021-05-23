@@ -4,4 +4,6 @@
     <string name="categorie">Inserisci una categoria</string>
     <string name="salva_la_posizione">Salva la posizione</string>
     <string name="descrizione2">Descrizione</string>
+    <string name="modifica_la_categoria">Modifica la categoria</string>
+    <string name="modifica_la_descrizione_della_posizione">Modifica la descrizione della posizione</string>
 </resources>

@@ -3,6 +3,9 @@ package com.example.mypoi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.AdapterView
+import android.widget.Button
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
@@ -18,19 +21,21 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Activity_registra_POI::class.java)
                     startActivity(intent)
         }
-
-        val dbPos = DataBasePosizioni( this)
-        var datiLista = dbPos.readData()
-        listaPosizioni.adapter = ListMyAdapter(this,datiLista)
+        updateLista()
     }
 
     override fun onResume() {
         super.onResume()
+        updateLista()
+    }
 
+    private fun updateLista(){
         val dbPos = DataBasePosizioni( this)
         var datiLista = dbPos.readData()
         listaPosizioni.adapter = ListMyAdapter(this,datiLista)
     }
+
+
 
 }
 
