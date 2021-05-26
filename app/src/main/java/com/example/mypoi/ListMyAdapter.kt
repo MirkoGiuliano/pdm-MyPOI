@@ -42,11 +42,11 @@ class ListMyAdapter(private val context: Context, private val datiLista: ArrayLi
         }
 
         var buttonModifica: ImageButton = newView!!.findViewById(R.id.buttonModifica)
-        buttonModifica.setOnClickListener{
+      /*  buttonModifica.setOnClickListener{
             val intent = Intent(context, Activity_registra_POI::class.java)
             intent.putExtra("position", position)
             context.startActivity(intent)
-        }
+        }*/
 
         buttonModifica.setOnClickListener{
 
@@ -79,19 +79,19 @@ class ListMyAdapter(private val context: Context, private val datiLista: ArrayLi
             
             val buttonElimina = view.findViewById<Button>(R.id.buttonElimina)
             val buttonSalva = view.findViewById<Button>(R.id.buttonSalva)
+            val dbPos = DataBasePosizioni(context)
 
             buttonElimina.setOnClickListener{
-                //elimina posizione
                 popupWindow.dismiss()
                 Toast.makeText(context,"Posizione eliminata",Toast.LENGTH_SHORT).show()
+                dbPos.deleteData(position)
             }
             buttonSalva.setOnClickListener{
                 val et = view.findViewById<EditText>(R.id.editTextDescrizione_modifica)
-                // modifica posizione
+                dbPos.updateData(position+1, et.text.toString(), spinner_selettore_categoria.selectedItem.toString())
                 popupWindow.dismiss()
                 Toast.makeText(context,"Posizione modificata",Toast.LENGTH_SHORT).show()
             }
-
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 TransitionManager.beginDelayedTransition(parent)

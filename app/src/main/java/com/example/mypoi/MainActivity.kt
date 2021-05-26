@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         updateLista()
     }
 
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        updateLista()
+    }
     private fun updateLista(){
         val dbPos = DataBasePosizioni( this)
         var datiLista = dbPos.readData()

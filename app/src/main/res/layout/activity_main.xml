@@ -15,11 +15,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaPosizioni"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -58,5 +58,21 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
         return list
     }
 
+    fun updateData(posizione: Int, descrizione: String, categoria: String) {
+        val db = this.readableDatabase
+        val values = ContentValues()
+        if(descrizione != ""){
+            values.put(COLONNA_DESCRIZIONE, descrizione)
+        }
+        if(categoria != ""){
+            values.put(COLONNA_CATEGORIE, categoria)
+        }
+        db.update(TABLE_NAME, values, "id = $posizione", arrayOf())
+    }
+
+    fun deleteData(posizione: Int){
+        val db = this.readableDatabase
+        db.delete(TABLE_NAME,"id = $posizione",null)
+    }
 }
 
