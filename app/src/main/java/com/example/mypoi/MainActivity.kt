@@ -33,13 +33,12 @@ class MainActivity : AppCompatActivity() {
         super.onWindowFocusChanged(hasFocus)
         updateLista()
     }
+
     private fun updateLista(){
         val dbPos = DataBasePosizioni( this)
         var datiLista = dbPos.readData()
         listaPosizioni.adapter = ListMyAdapter(this,datiLista)
     }
-
-
 
 }
 

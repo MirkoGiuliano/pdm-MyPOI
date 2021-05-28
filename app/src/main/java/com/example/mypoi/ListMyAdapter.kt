@@ -88,7 +88,7 @@ class ListMyAdapter(private val context: Context, private val datiLista: ArrayLi
             }
             buttonSalva.setOnClickListener{
                 val et = view.findViewById<EditText>(R.id.editTextDescrizione_modifica)
-                dbPos.updateData(position+1, et.text.toString(), spinner_selettore_categoria.selectedItem.toString())
+                dbPos.updateData(position, et.text.toString(), spinner_selettore_categoria.selectedItem.toString())
                 popupWindow.dismiss()
                 Toast.makeText(context,"Posizione modificata",Toast.LENGTH_SHORT).show()
             }
