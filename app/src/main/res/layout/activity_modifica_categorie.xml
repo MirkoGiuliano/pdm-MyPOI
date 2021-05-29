@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ModificaCategorieActivity">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewModificaCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modifica_la_categoria"
+            android:layout_marginBottom="6dp"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextModificaCat"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginBottom="6dp"
+            android:hint="@string/categoria"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/buttonSalvaCat"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:text="@string/salva_le_modifiche" />
+
+        <Button
+            android:id="@+id/buttonEliminaCat"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="@string/elimina_la_categoria" />
+    </LinearLayout>
+
+</LinearLayout>

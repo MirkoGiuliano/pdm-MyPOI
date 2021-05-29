@@ -41,11 +41,11 @@
         android:id="@+id/buttonSalva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salva le modifiche"/>
+        android:text="@string/salva_le_modifiche"/>
 
     <Button
         android:id="@+id/buttonElimina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Elimina la posizione"/>
+        android:text="@string/elimina_la_posizione"/>
 </LinearLayout>

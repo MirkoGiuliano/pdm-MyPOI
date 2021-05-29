@@ -82,8 +82,7 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
         val query = "SELECT id FROM $TABLE_NAME LIMIT 1 OFFSET $posizione"
         val result = db.rawQuery(query, null)
         result.moveToFirst()
-        val id = result.getString(result.getColumnIndex("id"))
-        return id
+        return result.getString(result.getColumnIndex("id"))
     }
 }
 
