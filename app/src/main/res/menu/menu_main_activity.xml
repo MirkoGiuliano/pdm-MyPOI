@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/modificaCategorie"
+        android:title="@string/modifica_le_categoria" />
+    <item android:id="@+id/aggiungiCategorie"
+        android:title="@string/aggiungi_una_categoria" />
+</menu>

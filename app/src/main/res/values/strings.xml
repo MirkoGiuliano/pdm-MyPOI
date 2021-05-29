@@ -5,10 +5,11 @@
     <string name="salva_la_posizione">Salva la posizione</string>
     <string name="descrizione2">Descrizione</string>
     <string name="modifica_la_categoria">Modifica la categoria</string>
+    <string name="modifica_le_categoria">Modifica le categoria</string>
     <string name="modifica_la_descrizione_della_posizione">Modifica la descrizione della posizione</string>
-    <string name="modifica_la_categoria">Modifica la categoria</string>
     <string name="categoria">Categoria</string>
     <string name="salva_le_modifiche">Salva le modifiche</string>
     <string name="elimina_la_categoria">Elimina la categoria</string>
     <string name="elimina_la_posizione">Elimina la posizione</string>
+    <string name="aggiungi_una_categoria">Aggiungi una categoria</string>
 </resources>

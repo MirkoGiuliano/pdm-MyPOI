@@ -32,9 +32,9 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
         val result = database.insert(TABLE_NAME , null ,contentValues)
 
         if(result == (0).toLong()){
-            Toast.makeText(context, "inserimento fallito", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "inserimento posizione fallito", Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(context, "inserimento avvenuto", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "inserimento posizione avvenuto", Toast.LENGTH_SHORT).show()
 
         }
     }

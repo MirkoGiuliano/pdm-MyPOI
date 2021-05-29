@@ -59,4 +59,26 @@ class DataBaseCategorie(var context : Context) : SQLiteOpenHelper(context, "cate
         }
     }
 
+    fun updateData(position: Int, nomeCategoria: String) {
+        val db = this.readableDatabase
+        val values = ContentValues()
+        values.put(COLONNA_CATEGORIE, nomeCategoria)
+        val ourID = getID(position)
+        db.update(TABLE_NAME, values, "id = $ourID", arrayOf())
+    }
+
+    fun getID(posizione: Int): String {
+        val db = this.readableDatabase
+        val query = "SELECT id FROM $TABLE_NAME LIMIT 1 OFFSET $posizione"
+        val result = db.rawQuery(query, null)
+        result.moveToFirst()
+        return result.getString(result.getColumnIndex("id"))
+    }
+
+    fun deleteData(posizione: Int) {
+        val db = this.readableDatabase
+        val ourID = getID(posizione)
+        db.delete(TABLE_NAME,"id = $ourID",null)
+    }
+
 }

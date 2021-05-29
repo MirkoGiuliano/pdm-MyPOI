@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import java.util.ArrayList
 
-class ListMyAdapter(private val context: Context, private val datiLista: ArrayList<DatoLista>) : BaseAdapter() {
+class ListMyAdapterPosizioni(private val context: Context, private val datiLista: ArrayList<DatoLista>) : BaseAdapter() {
     override fun getCount(): Int {
         return datiLista.size
     }
@@ -42,11 +42,6 @@ class ListMyAdapter(private val context: Context, private val datiLista: ArrayLi
         }
 
         var buttonModifica: ImageButton = newView!!.findViewById(R.id.buttonModifica)
-      /*  buttonModifica.setOnClickListener{
-            val intent = Intent(context, Activity_registra_POI::class.java)
-            intent.putExtra("position", position)
-            context.startActivity(intent)
-        }*/
 
         buttonModifica.setOnClickListener{
 
