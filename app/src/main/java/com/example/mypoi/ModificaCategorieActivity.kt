@@ -36,7 +36,7 @@ class ModificaCategorieActivity : AppCompatActivity() {
             if(posizione != 999){
                 val dbCat = DataBaseCategorie(this)
                 dbCat.deleteData(posizione)
-                Toast.makeText(this, "categoria aggiornata", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "categoria eliminata", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "nessuna categoria selezionata", Toast.LENGTH_SHORT).show()
             }

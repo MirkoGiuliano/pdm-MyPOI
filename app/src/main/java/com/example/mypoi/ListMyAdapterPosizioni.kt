@@ -35,7 +35,6 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
         if(newView != null){
            var categoria: TextView = newView.findViewById(R.id.categoria)
             var info_posizione: TextView = newView.findViewById(R.id.info_posizione)
-            // se modifichiamo anche l'immagone della categoria aggiungere qui
             categoria.text = datiLista[position].getCategoria()
             info_posizione.text = datiLista[position].getDescrizione()
 
@@ -83,9 +82,13 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
             }
             buttonSalva.setOnClickListener{
                 val et = view.findViewById<EditText>(R.id.editTextDescrizione_modifica)
-                dbPos.updateData(position, et.text.toString(), spinner_selettore_categoria.selectedItem.toString())
-                popupWindow.dismiss()
-                Toast.makeText(context,"Posizione modificata",Toast.LENGTH_SHORT).show()
+                if("" != et.text.toString()){
+                    dbPos.updateData(position, et.text.toString(), spinner_selettore_categoria.selectedItem.toString())
+                    popupWindow.dismiss()
+                    Toast.makeText(context,"Posizione modificata",Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context,"Descrizione posizione vuota",Toast.LENGTH_SHORT).show()
+                }
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

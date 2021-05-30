@@ -29,14 +29,8 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
         contentValues.put(COLONNA_DESCRIZIONE,data.getDescrizione())
         contentValues.put(COLONNA_LATITUDINE,data.getLatitudine())
         contentValues.put(COLONNA_LONGITUDINE,data.getLongitudine())
-        val result = database.insert(TABLE_NAME , null ,contentValues)
+        database.insert(TABLE_NAME , null ,contentValues)
 
-        if(result == (0).toLong()){
-            Toast.makeText(context, "inserimento posizione fallito", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(context, "inserimento posizione avvenuto", Toast.LENGTH_SHORT).show()
-
-        }
     }
 
     fun readData(): ArrayList<DatoLista>{

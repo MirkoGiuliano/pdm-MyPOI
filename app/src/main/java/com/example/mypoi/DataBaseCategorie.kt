@@ -23,13 +23,7 @@ class DataBaseCategorie(var context : Context) : SQLiteOpenHelper(context, "cate
         val database = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLONNA_CATEGORIE,categoria)
-        val result = database.insert(TABLE_NAME , null ,contentValues)
-        if(result == (0).toLong()){
-            Toast.makeText(context, "inserimento categoria fallito", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(context, "inserimento categoria avvenuto", Toast.LENGTH_SHORT).show()
-
-        }
+        database.insert(TABLE_NAME , null ,contentValues)
     }
 
     fun readData(): MutableList<String>{

@@ -67,9 +67,13 @@ class MainActivity : AppCompatActivity() {
 
                 buttonSalva.setOnClickListener{
                     val et = view.findViewById<EditText>(R.id.editTextAggiungiCat)
-                    popupWindow.dismiss()
-                    dbCat.insertData(et.text.toString())
-                    Toast.makeText(this,"Categoria aggiunta", Toast.LENGTH_SHORT).show()
+                    if("" != (et.text.toString())){
+                        popupWindow.dismiss()
+                        dbCat.insertData(et.text.toString())
+                        Toast.makeText(this,"Categoria aggiunta", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this,"Categoria vuota", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
