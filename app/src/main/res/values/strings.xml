@@ -12,4 +12,5 @@
     <string name="elimina_la_categoria">Elimina la categoria</string>
     <string name="elimina_la_posizione">Elimina la posizione</string>
     <string name="aggiungi_una_categoria">Aggiungi una categoria</string>
+    <string name="title_activity_map_show_posizione">Map</string>
 </resources>

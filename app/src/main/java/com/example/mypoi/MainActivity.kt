@@ -1,16 +1,16 @@
 package com.example.mypoi
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.transition.Slide
 import android.transition.TransitionManager
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import android.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,6 +26,15 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
         }
         updateLista()
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setMessage("- Per Inserire una nuova posizione da salvare premi il pulsante in basso a destra!" +
+        "\n-Per Aggiungere o modificare una categoria premi il menu in alto a destra")
+            .setCancelable(false)
+            .setPositiveButton("OK",
+                DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
+            .setTitle("Istruzioni")
+        val alert: AlertDialog = builder.create()
+        alert.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

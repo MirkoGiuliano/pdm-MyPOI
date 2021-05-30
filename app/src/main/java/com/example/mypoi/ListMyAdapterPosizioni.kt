@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
 class ListMyAdapterPosizioni(private val context: Context, private val datiLista: ArrayList<DatoLista>) : BaseAdapter() {
@@ -96,7 +98,26 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
             }
             popupWindow.showAtLocation(parent, Gravity.CENTER, 0, 0)
         }
+
+        var linearToClick: LinearLayout = newView!!.findViewById(R.id.linear_to_click)
+        linearToClick.setOnClickListener {
+            StartActivityConPosizione(position)
+        }
+
+        var immagineCategoria: ImageView = newView!!.findViewById(R.id.immagineCategoria)
+        immagineCategoria.setOnClickListener{
+            StartActivityConPosizione(position)
+        }
         return newView
+    }
+
+    private fun StartActivityConPosizione(position: Int) {
+        val intent = Intent(context, MapShowPosizione::class.java)
+        val dbPos = DataBasePosizioni(context)
+        val latLon = dbPos.getLonLanAtPos(position)
+        intent.putExtra("lon", latLon[1])
+        intent.putExtra("lat", latLon[0])
+        startActivity(context, intent, null)
     }
 
 }

@@ -14,6 +14,7 @@
         app:srcCompat="@android:drawable/ic_dialog_map" />
 
     <LinearLayout
+        android:id="@+id/linear_to_click"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.4"

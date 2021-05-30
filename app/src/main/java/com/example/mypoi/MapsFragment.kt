@@ -38,6 +38,7 @@ class MapsFragment : Fragment(), LocationListener{
         getLocation()
         val myPosition = LatLng(0.0, 0.0)
         marker = googleMap.addMarker(MarkerOptions().position(myPosition).title(""))
+        marker.isVisible = false
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(myPosition))
     }
 
@@ -60,6 +61,7 @@ class MapsFragment : Fragment(), LocationListener{
         val myPosition = LatLng(location.latitude, location.longitude)
         marker.position = myPosition
         map.moveCamera(CameraUpdateFactory.newLatLng(myPosition))
+        marker.isVisible = true
         dataPasser.onDataPass(myPosition)
     }
 

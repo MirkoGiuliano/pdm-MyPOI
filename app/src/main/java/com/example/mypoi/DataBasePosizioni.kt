@@ -78,5 +78,20 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
         result.moveToFirst()
         return result.getString(result.getColumnIndex("id"))
     }
+
+    fun getLonLanAtPos(position: Int): ArrayList<String> {
+        val list: ArrayList<String> = ArrayList()
+        val db = this.readableDatabase
+        val ourID = getID(position)
+        val query = "Select * from $TABLE_NAME WHERE id = $ourID"
+        val result = db.rawQuery(query, null)
+        if(result.moveToFirst()){
+            do {
+                list.add(result.getString(result.getColumnIndex(COLONNA_LATITUDINE)))
+                list.add(result.getString(result.getColumnIndex(COLONNA_LONGITUDINE)))
+            }while(result.moveToNext())
+        }
+        return list
+    }
 }
 
