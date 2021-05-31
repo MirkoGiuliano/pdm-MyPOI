@@ -1,12 +1,10 @@
 package com.example.mypoi
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import java.util.ArrayList
 
 class ListMyCategorieAdapter(private val context: Context, private val datiLista: MutableList<String> ) : BaseAdapter() {
     override fun getCount(): Int {
@@ -29,7 +27,7 @@ class ListMyCategorieAdapter(private val context: Context, private val datiLista
         }
 
         if(newView != null){
-            var categoria: TextView = newView.findViewById(R.id.textView_cat)
+            val categoria: TextView = newView.findViewById(R.id.textView_cat)
             categoria.text = datiLista[position]
 
         }

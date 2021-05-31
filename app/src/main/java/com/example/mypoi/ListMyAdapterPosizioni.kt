@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
 class ListMyAdapterPosizioni(private val context: Context, private val datiLista: ArrayList<DatoLista>) : BaseAdapter() {
@@ -27,7 +26,7 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
         return position.toLong()
     }
 
-    override fun getView(position: Int, converterView: View?, parent: ViewGroup?): View? {
+    override fun getView(position: Int, converterView: View?, parent: ViewGroup?): View {
         var newView = converterView
 
         if(converterView == null){
@@ -35,14 +34,14 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
         }
 
         if(newView != null){
-           var categoria: TextView = newView.findViewById(R.id.categoria)
-            var info_posizione: TextView = newView.findViewById(R.id.info_posizione)
+           val categoria: TextView = newView.findViewById(R.id.categoria)
+            val info_posizione: TextView = newView.findViewById(R.id.info_posizione)
             categoria.text = datiLista[position].getCategoria()
             info_posizione.text = datiLista[position].getDescrizione()
 
         }
 
-        var buttonModifica: ImageButton = newView!!.findViewById(R.id.buttonModifica)
+        val buttonModifica: ImageButton = newView!!.findViewById(R.id.buttonModifica)
 
         buttonModifica.setOnClickListener{
 
@@ -52,7 +51,7 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
 
             val dbCat = DataBaseCategorie(context)
             dbCat.init()
-            var categorie: MutableList<String> = dbCat.readData()
+            val categorie: MutableList<String> = dbCat.readData()
             val spinner_selettore_categoria: Spinner = view.findViewById(R.id.spinner_selettore_categoria_modifica)
             val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, categorie)
             spinner_selettore_categoria.adapter = adapter
@@ -99,12 +98,12 @@ class ListMyAdapterPosizioni(private val context: Context, private val datiLista
             popupWindow.showAtLocation(parent, Gravity.CENTER, 0, 0)
         }
 
-        var linearToClick: LinearLayout = newView!!.findViewById(R.id.linear_to_click)
+        val linearToClick: LinearLayout = newView.findViewById(R.id.linear_to_click)
         linearToClick.setOnClickListener {
             StartActivityConPosizione(position)
         }
 
-        var immagineCategoria: ImageView = newView!!.findViewById(R.id.immagineCategoria)
+        val immagineCategoria: ImageView = newView.findViewById(R.id.immagineCategoria)
         immagineCategoria.setOnClickListener{
             StartActivityConPosizione(position)
         }

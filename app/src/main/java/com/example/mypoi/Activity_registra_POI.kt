@@ -18,7 +18,7 @@ class Activity_registra_POI : AppCompatActivity(), MapsFragment.OnDataPass {
 
         val dbCat = DataBaseCategorie( this)
         dbCat.init()
-        var categorie: MutableList<String> = dbCat.readData()
+        val categorie: MutableList<String> = dbCat.readData()
         val spinner_selettore_categoria: Spinner = findViewById(R.id.spinner_selettore_categoria)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categorie)
         spinner_selettore_categoria.adapter = adapter
@@ -28,7 +28,7 @@ class Activity_registra_POI : AppCompatActivity(), MapsFragment.OnDataPass {
         val button_conferma: Button = findViewById(R.id.button_conferma)
         button_conferma.setOnClickListener{
             val dato = DatoLista()
-            var editTestDescrizione: EditText = findViewById(R.id.editTextReg)
+            val editTestDescrizione: EditText = findViewById(R.id.editTextReg)
             dato.setDescrizione(editTestDescrizione.text.toString())
             dato.setCategoria(spinner_selettore_categoria.selectedItem.toString())
             dato.setLongitudine(myPosition.longitude.toString())

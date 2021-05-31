@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
 
 private val TABLE_NAME = "posizioni"
 private val COLONNA_CATEGORIE = "nomeCategoria"
@@ -41,7 +40,7 @@ class DataBasePosizioni(var context : Context) : SQLiteOpenHelper(context, "posi
 
         if(result.moveToFirst()){
             do {
-                var dato = DatoLista()
+                val dato = DatoLista()
                 dato.setCategoria(result.getString(result.getColumnIndex(COLONNA_CATEGORIE)))
                 dato.setDescrizione(result.getString(result.getColumnIndex(COLONNA_DESCRIZIONE)))
                 dato.setLatitudine(result.getString(result.getColumnIndex(COLONNA_LATITUDINE)))
